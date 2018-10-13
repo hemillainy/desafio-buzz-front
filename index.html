@@ -6,13 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Buzzmonitor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./app.css">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./app.css">
 </head>
 
-<body ng-app="adminScreen">
+<body ng-app="adminScreen" class="container">
+    <br><br>
     <h3 id="title">Buzzmonitor Admin</h3>
-    <button type="button" class="btn btn-primary btn-lg">Search user</button>
+    <br>
+    <div id="btns">
+        <button type="button" class="btn btn-primary">Search user</button>
+        <button type="button" class="btn btn-primary">All users</button>
+    </div>
+
     <script src="./node_modules/angular/angular.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="./node_modules/jquery/dist/jquery.js"></script>
