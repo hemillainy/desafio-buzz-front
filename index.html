@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="adminScreen">
 
 <head>
     <meta charset="utf-8" />
@@ -8,21 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="./app.css">
+    <link rel="stylesheet" href="./src/components/search-user/search-user.css">
 </head>
 
-<body ng-app="adminScreen" class="container">
+<body ng-controller="AdminScreenCtrl" class="container">
     <br><br>
     <h3 id="title">Buzzmonitor Admin</h3>
     <br>
     <div id="btns">
-        <button type="button" class="btn btn-primary">Search user</button>
+        <button type="button" class="btn btn-primary" ng-click="setViewSearch()">Search user</button>
         <button type="button" class="btn btn-primary">All users</button>
     </div>
 
+
+    <br>
+
+    <!-- <div ng-include="'./src/components/search-user/search-user.html'"></div> -->
+    
     <script src="./node_modules/angular/angular.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="./node_modules/jquery/dist/jquery.js"></script>
     <script src="./src/app.js"></script>
+    <script src="./src/admin-screen-ctrl.js"></script>
+    <script src="./src/components/search-user/search-user.controller.js"></script>
+    <script src="./src/components/user-listing/user-listing.controller.js"></script>
 </body>
 
 </html>

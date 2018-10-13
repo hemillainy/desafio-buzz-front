@@ -1,0 +1,17 @@
+div#search {
+    width: 515px;
+    position: absolute;
+    left: 430px;
+}
+
+.form-group {
+    align-self: center
+}
+
+input#email {
+    width: 436px;
+}
+
+/* button#btn-search {
+    float: right;
+} */
