@@ -17,8 +17,8 @@
     <h5 style="text-align: center">Buzzmonitor Admin</h5>
 
     <div id="btns">
-        <button id="first" type="button" class="btn-sm btn btn-primary" ng-click="setViewSearch()">Search user</button>
-        <button type="button" class="btn-sm btn btn-primary" ng-click="setViewUserListing()">All users</button>
+        <button id="first" type="button" class="btn-sm btn btn-primary" ng-click="setViewSearch(true); setViewUserListing(false)">Search user</button>
+        <button type="button" class="btn-sm btn btn-primary" ng-click="setViewUserListing(true); setViewSearch(false)">All users</button>
     </div>
 
     <br><br>
@@ -32,7 +32,7 @@
     <script src="./src/app.js"></script>
     <script src="./src/admin-screen-ctrl.js"></script>
     <script src="./src/components/search-user/search-user.js"></script>
-    <script src="./src/components/user-listing/user-listing-service.js"></script>
+    <script src="./src/users-service.js"></script>
     <script src="./src/components/user-listing/user-listing.js"></script>
 </body>
 
