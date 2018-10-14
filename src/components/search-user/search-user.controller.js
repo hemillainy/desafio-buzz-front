@@ -1,3 +1,4 @@
-angular.module("adminScreen").controller("SearchUserCtrl", function ($scope) {
-    
-})
+angular.module("adminScreen")
+    .controller("SearchUserCtrl", function ($scope) {
+
+    })
