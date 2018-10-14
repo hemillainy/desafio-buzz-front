@@ -4,7 +4,6 @@ angular.module("adminScreen")
         controller: function ($scope, usersAPI) {
             usersAPI.getUsers()
                 .then(users => {
-                    console.log(users.data)
                     $scope.users = users.data;
                 })
         }

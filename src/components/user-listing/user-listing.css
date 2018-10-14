@@ -1,3 +1,24 @@
-div#user-listing {
-    align-content: center
+div#listing {
+    width: 430px;
+    height: 352px;
+}
+
+td#email {
+    text-align: initial;
+}
+
+td#check {
+    text-align: center;
+}
+
+div#options-btn {
+    float: right
+}
+
+button#edit, button#edit {
+    margin-right: 20px;
+}
+
+td#check {
+
 }

@@ -1,8 +1,11 @@
-h3 {
-    font-size: 25px;
+h5 {
     text-align: center;
 }
 
 div#btns {
     text-align: center
+}
+
+button#first {
+    margin-right: 10px;
 }

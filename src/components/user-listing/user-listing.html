@@ -1,18 +1,23 @@
-<div class="container">
+<div id="listing" class="container border">
     <table class="table table-borderless">
         <thead>
             <tr>
-                <th scope="col">User</th>
-                <th scope="col">Select</th>
+                <th id="listing" scope="col">User</th>
+                <th id="listing" scope="col">Select</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <tr ng-repeat="user in users">
-                    <td>{{user.email}}</td>
-                    <td><input type="checkbox"></td>
-                </tr>
+            <tr ng-repeat="user in users">
+                <td id="email">{{user.email}}</td>
+                <td id="check"><input type="checkbox"></td>
+            </tr>
             </tr>
         </tbody>
     </table>
+    <div id="options-btn">
+        <button id="edit" type="button" class="btn-sm btn btn-primary" ng-click="setViewSearch()">Edit settings</button>
+        <button id="quota" type="button" class="btn-sm btn btn-primary" ng-click="setViewSearch()">Add quota</button>
+    </div>
+    <br>
 </div>

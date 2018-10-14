@@ -6,22 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Buzzmonitor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./app.css">
     <link rel="stylesheet" href="./src/components/search-user/search-user.css">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="./node_modules/bootstrap/scss/bootstrap.scss">
+    <link rel="stylesheet" href="./src/components/user-listing/user-listing.css">
+    <link rel="stylesheet" href="./app.css">
 </head>
 
 <body ng-controller="AdminScreenCtrl" class="container">
     <br><br>
-    <h3 id="title">Buzzmonitor Admin</h3>
-    <br>
+    <h5 style="text-align: center">Buzzmonitor Admin</h5>
+
     <div id="btns">
-        <button type="button" class="btn btn-primary" ng-click="setViewSearch()">Search user</button>
-        <button type="button" class="btn btn-primary">All users</button>
+        <button id="first" type="button" class="btn-sm btn btn-primary" ng-click="setViewSearch()">Search user</button>
+        <button type="button" class="btn-sm btn btn-primary">All users</button>
     </div>
 
-    <br>
+    <br><br>
 
     <search-user ng-if="viewSearch"></search-user>
     <user-listing></user-listing>
