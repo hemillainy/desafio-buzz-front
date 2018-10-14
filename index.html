@@ -23,8 +23,9 @@
 
     <br><br>
 
-    <search-user ng-if="viewSearch"></search-user>
+    <search-user ng-if="true"></search-user>
     <user-listing ng-if="viewUserListing"></user-listing>
+    <user-account></user-account>
     
     <script src="./node_modules/angular/angular.js"></script>
     <script src="./node_modules/jquery/dist/jquery.js"></script>
@@ -34,6 +35,8 @@
     <script src="./src/components/search-user/search-user.js"></script>
     <script src="./src/users-service.js"></script>
     <script src="./src/components/user-listing/user-listing.js"></script>
+    <script src="./src/components/user-account/user-account.js"></script>
+    
 </body>
 
 </html>
