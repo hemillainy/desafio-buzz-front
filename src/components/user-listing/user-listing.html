@@ -8,10 +8,10 @@
         </thead>
         <tbody>
             <tr>
-                <td ng-repeat="user in users"></td>
-            </tr>
-            <tr>
-                <td>Jacob</td>
+                <tr ng-repeat="user in users">
+                    <td>{{user.email}}</td>
+                    <td><input type="checkbox"></td>
+                </tr>
             </tr>
         </tbody>
     </table>
