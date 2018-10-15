@@ -24,7 +24,67 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="user" role="tabpanel" aria-labelledby="user-tab"></div>
             <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-                {{userSettings.brands_limit}}
+                <div id="listing" class="container">
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th id="listing" scope="col">Name</th>
+                                <th id="listing" scope="col">Limited</th>
+                                <th scope="col">Edit limit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <tr>
+                                <td>Brands limit</td>
+                                <td id="check"><input id="check1" type="checkbox"></td>
+                                <td id="editOption"><i class="edit icon"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Collected posts per month limit</td>
+                                <td id="check"><input id="check2" type="checkbox"></td>
+                                <td id="editOption"><i class="edit icon"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Analytics profiles limit</td>
+                                <td id="check"><input id="check3" type="checkbox"></td>
+                                <td id="editOption"><i class="edit icon"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Crm profiles limit</td>
+                                <td id="check"><input id="check4" type="checkbox"></td>
+                                <td id="editOption"><i class="edit icon"></i></td>
+                            </tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr/>
+                    
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th id="listing" scope="col">Module</th>
+                                <th id="listing" scope="col">Able</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <tr>
+                                <td>Active Analytics Pro</td>
+                                <td id="check"><input id="check5" type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td>Active Dashboards</td>
+                                <td id="check"><input id="check6" type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td>Active Historical Search</td>
+                                <td id="check"><input id="check7" type="checkbox"></td>
+                            </tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="tab-pane fade" id="stats" role="tabpanel" aria-labelledby="stats-tab">...</div>
         </div>

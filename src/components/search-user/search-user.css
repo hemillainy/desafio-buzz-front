@@ -4,6 +4,10 @@ div#search {
     left: 430px;
 }
 
+td#editOption {
+    text-align: center
+}
+
 .form-group {
     align-self: center
 }
@@ -11,7 +15,3 @@ div#search {
 input#email {
     width: 436px;
 }
-
-/* button#btn-search {
-    float: right;
-} */

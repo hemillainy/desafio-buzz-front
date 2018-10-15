@@ -7,18 +7,21 @@
     <title>Buzzmonitor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./src/components/search-user/search-user.css">
+    <link rel="stylesheet" href="./node_modules/semantic-ui/dist/semantic.css">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="./src/components/user-listing/user-listing.css">
     <link rel="stylesheet" href="./app.css">
 </head>
 
-<body ng-controller="AdminScreenCtrl" class="container">
+<body ng-controller="AdminScreenCtrl">
     <br><br>
     <h5 style="text-align: center">Buzzmonitor Admin</h5>
 
     <div id="btns">
-        <button id="first" type="button" class="btn-sm btn btn-primary" ng-click="setViewSearch(true); setViewUserListing(false)">Search user</button>
-        <button type="button" class="btn-sm btn btn-primary" ng-click="setViewUserListing(true); setViewSearch(false)">All users</button>
+        <button id="first" type="button" class="btn-sm btn btn-primary" ng-click="setViewSearch(true); setViewUserListing(false)">Search
+            user</button>
+        <button type="button" class="btn-sm btn btn-primary" ng-click="setViewUserListing(true); setViewSearch(false)">All
+            users</button>
     </div>
 
     <br><br>
@@ -26,7 +29,7 @@
     <search-user ng-if="true"></search-user>
     <user-listing ng-if="viewUserListing"></user-listing>
     <user-account></user-account>
-    
+
     <script src="./node_modules/angular/angular.js"></script>
     <script src="./node_modules/jquery/dist/jquery.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
@@ -35,8 +38,9 @@
     <script src="./src/components/search-user/search-user.js"></script>
     <script src="./src/users-service.js"></script>
     <script src="./src/components/user-listing/user-listing.js"></script>
-    <script src="./src/components/user-account/user-account.js"></script>
-    
+    <script src="./src/components/user-settings/user-account.js"></script>
+    <script src="./src/components/user-settings/settings.js"></script>
+    <script src="./node_modules/semantic-ui/dist/semantic.js"></script>
 </body>
 
 </html>
