@@ -28,31 +28,36 @@ angular.module("adminScreen")
                         $scope.analytics_limit = settings.data.analytics_limit;
                         $scope.crm_limit = settings.data.crm_limit;
 
-                        setCheckbox(settings);
+                        setCheckbox(settings.data);
                     });
             }
             setCheckbox = function (settings) {
-                if (settings.data.brands_limited == 1) {
+                if (settings.brands_limited) {
                     document.getElementById("check1").checked = true;
                 }
-                if (settings.data.collected_limit == 1) {
+                if (settings.collected_limited) {
                     document.getElementById("check2").checked = true;
                 }
-                if (settings.data.analytics_limit == 1) {
+                if (settings.analytics_limited) {
                     document.getElementById("check3").checked = true;
                 }
-                if (settings.data.crm_limit == 1) {
+                if (settings.crm_limited) {
                     document.getElementById("check4").checked = true;
                 }
-                if (settings.data.analytics_pro == 1) {
+                if (settings.analytics_pro) {
                     document.getElementById("check5").checked = true;
                 }
-                if (settings.data.dashboards == 1) {
+                if (settings.dashboards) {
                     document.getElementById("check6").checked = true;
                 }
-                if (settings.data.historical_search == 1) {
+                if (settings.historical_search) {
                     document.getElementById("check7").checked = true;
                 }
+            }
+
+            $scope.setViewSettings = function() {
+                console.log("Oi")
+                $scope.viewSettings = !$scope.viewSettings;
             }
         }
     })

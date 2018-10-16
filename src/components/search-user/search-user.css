@@ -15,3 +15,13 @@ td#editOption {
 input#email {
     width: 436px;
 }
+
+div#viewSetting{
+    text-align: center
+}
+
+div#settingsTable {
+    width: 30%;
+    margin-right: 0px;
+    border-right-width: 0px;
+}
