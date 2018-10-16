@@ -13,68 +13,71 @@
     <div>
         <div>
             <div class="ui three item menu huge">
-                <a class="item">User</a>
-                <a class="item" href="#settings" ng-click="getUserSettings(); setViewSettings()">Settings</a>
-                <a class="item">Stats</a>
+                <a class="item">USER</a>
+                <a class="item" href="#settings" ng-click="getUserSettings(); setViewSettings()">SETTINGS</a>
+                <a class="item">STATS</a>
             </div>
-            <div id="settingsTable" ng-if="viewSettings">
-                <table style="border:none" class="ui single line table">
-                    <thead>
-                        <tr style="border-bottom: none; background: none">
-                            <th>Name</th>
-                            <th>Limited</th>
-                            <th>Edit limit</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-top: none">
-                            <td style="border-top: none">Brands limit</td>
-                            <td style="border-top: none" id="check"><input id="check1" type="checkbox"></td>
-                            <td style="border-top: none" id="editOption"><i class="edit icon"></i></td>
-                        </tr>
-                        <tr style="border-top: none">
-                            <td style="border-top: none">Collected posts per mounth limit</td>
-                            <td style="border-top: none" id="check"><input id="check2" type="checkbox"></td>
-                            <td style="border-top: none" id="editOption"><i class="edit icon"></i></td>
-                        </tr>
-                        <tr style="border-top: none">
-                            <td style="border-top: none">Analytics profiles limit</td>
-                            <td style="border-top: none" id="check"><input id="check3" type="checkbox"></td>
-                            <td style="border-top: none" id="editOption"><i class="edit icon"></i></td>
-                        </tr>
-                        <tr style="border-top: none">
-                            <td style="border-top: none">Crm profile limit</td>
-                            <td style="border-top: none" id="check"><input id="check4" type="checkbox"></td>
-                            <td style="border-top: none" id="editOption"><i class="edit icon"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="ui segment" style="margin-top: 0px;padding-top: 0px;bottom: 15px;width: 1127px;height: 425px;padding-bottom: 20px;">
+                <h2 class="ui right floated header"></h2>
+                <div id="settingsTable" ng-if="viewSettings">
+                    <table style="border:none" class="ui single line table">
+                        <thead>
+                            <tr style="border-bottom: none; background: none">
+                                <th>Name</th>
+                                <th>Limited</th>
+                                <th>Edit limit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-top: none">
+                                <td style="border-top: none">Brands limit</td>
+                                <td style="border-top: none" id="check"><input id="check1" type="checkbox"></td>
+                                <td style="border-top: none" id="editOption"><i class="edit icon"></i></td>
+                            </tr>
+                            <tr style="border-top: none">
+                                <td style="border-top: none">Collected posts per mounth limit</td>
+                                <td style="border-top: none" id="check"><input id="check2" type="checkbox"></td>
+                                <td style="border-top: none" id="editOption"><i class="edit icon"></i></td>
+                            </tr>
+                            <tr style="border-top: none">
+                                <td style="border-top: none">Analytics profiles limit</td>
+                                <td style="border-top: none" id="check"><input id="check3" type="checkbox"></td>
+                                <td style="border-top: none" id="editOption"><i class="edit icon"></i></td>
+                            </tr>
+                            <tr style="border-top: none">
+                                <td style="border-top: none">Crm profile limit</td>
+                                <td style="border-top: none" id="check"><input id="check4" type="checkbox"></td>
+                                <td style="border-top: none" id="editOption"><i class="edit icon"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                <div style="width: 332.5%;height: 2px" class="ui fitted divider fluid"></div>
+                    <div style="width: 332.5%;height: 2px" class="ui fitted divider fluid"></div>
 
-                <table style="border:none; width: 90%" class="ui single line table">
-                    <thead>
-                        <tr style="border-bottom: none; background: none">
-                            <th>Module</th>
-                            <th style="width: 92px; padding-left: 40px">Able</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-top: none">
-                            <td style="border-top: none">Active Analytics Pro</td>
-                            <td style="border-top: none" id="check"><input id="check5" type="checkbox"></td>
-                        </tr>
-                        <tr style="border-top: none">
-                            <td style="border-top: none">Active Dashboards</td>
-                            <td style="border-top: none" id="check"><input id="check6" type="checkbox"></td>
-                        </tr>
-                        <tr style="border-top: none">
-                            <td style="border-top: none">Active Historical Search</td>
-                            <td style="border-top: none" id="check"><input id="check7" type="checkbox"></td>
-                        </tr>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table style="border:none; width: 90%" class="ui single line table">
+                        <thead>
+                            <tr style="border-bottom: none; background: none">
+                                <th>Module</th>
+                                <th style="width: 92px; padding-left: 40px">Able</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-top: none">
+                                <td style="border-top: none">Active Analytics Pro</td>
+                                <td style="border-top: none" id="check"><input id="check5" type="checkbox"></td>
+                            </tr>
+                            <tr style="border-top: none">
+                                <td style="border-top: none">Active Dashboards</td>
+                                <td style="border-top: none" id="check"><input id="check6" type="checkbox"></td>
+                            </tr>
+                            <tr style="border-top: none">
+                                <td style="border-top: none">Active Historical Search</td>
+                                <td style="border-top: none" id="check"><input id="check7" type="checkbox"></td>
+                            </tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
