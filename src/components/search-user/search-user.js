@@ -22,8 +22,6 @@ angular.module("adminScreen")
             $scope.getUserSettings = function () {
                 usersAPI.getUserSettings(userSearched.id)
                     .then(settings => {
-                        console.log(settings.data);
-
                         $scope.brands_limit = settings.data.brands_limit
                         $scope.collected_limit = settings.data.collected_limit
                         $scope.analytics_limit = settings.data.analytics_limit;
@@ -67,7 +65,7 @@ angular.module("adminScreen")
             $scope.getUserInformations = function () {
                 usersAPI.getUserInformations(userSearched.id)
                     .then(userInfos => {
-                        console.log(userInfos.data.password)
+                        console.log(userInfos.data)
                         $scope.userPassword = userInfos.data.password;
                         $scope.activationState = userInfos.data.activation_state;
                         $scope.accountType = userInfos.data.account_type;

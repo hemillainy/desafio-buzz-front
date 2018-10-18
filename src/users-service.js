@@ -4,7 +4,7 @@ angular.module("adminScreen")
             return $http.get("http://localhost:3000/users");
         };
 
-        const _getsUserSetting = function (id) {
+        const _getUserSettings = function (id) {
             return $http.get("http://localhost:3000/settings/"+id)
         };
 
