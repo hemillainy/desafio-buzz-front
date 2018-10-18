@@ -1,3 +1,4 @@
+<!-- ng-if="viewUserInformations" -->
 <div id="search">
     <form class="form-inline">
         <div class="form-group">
@@ -13,10 +14,17 @@
     <div>
         <div>
             <div class="ui three item menu huge">
-                <a class="item">USER</a>
-                <a class="item" href="#settings" ng-click="getUserSettings(); setViewSettings()">SETTINGS</a>
+                <a class="item" href="#users" ng-click="getUserInformations(); setViewUserInformations()">USER</a>
+                <a class="item" href="#settings" ng-click="getUserSettings() ; setViewSettings()">SETTINGS</a>
                 <a class="item">STATS</a>
             </div>
+
+            <div>
+                aaaaaaaaaaaa
+                {{infos.activation_state}}
+                {{infos.account_type}}
+            </div>
+            
             <div class="ui segment" style="margin-top: 0px;padding-top: 0px;bottom: 15px;width: 1127px;height: 425px;padding-bottom: 20px;">
                 <h2 class="ui right floated header"></h2>
                 <div id="settingsTable" ng-if="viewSettings">

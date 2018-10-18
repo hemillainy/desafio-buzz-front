@@ -20,8 +20,9 @@ angular.module("adminScreen")
             }
 
             $scope.getUserSettings = function () {
-                usersAPI.getSettingsUser(userSearched.id)
+                usersAPI.getUserSettings(userSearched.id)
                     .then(settings => {
+                        console.log(settings.data);
 
                         $scope.brands_limit = settings.data.brands_limit
                         $scope.collected_limit = settings.data.collected_limit
@@ -50,14 +51,28 @@ angular.module("adminScreen")
                 if (settings.dashboards) {
                     document.getElementById("check6").checked = true;
                 }
-                if (settings.historical_search) {
+                if (settings.historial_search) {
                     document.getElementById("check7").checked = true;
                 }
             }
 
-            $scope.setViewSettings = function() {
-                console.log("Oi")
+            $scope.setViewSettings = function () {
                 $scope.viewSettings = !$scope.viewSettings;
+            }
+
+            $scope.setViewUserInformations = function () {
+                $scope.viewUserInformations = !$scope.viewUserInformations;
+            }
+
+            $scope.getUserInformations = function () {
+                usersAPI.getUserInformations(userSearched.id)
+                    .then(userInfos => {
+                        console.log(userInfos.data.password)
+                        $scope.userPassword = userInfos.data.password;
+                        $scope.activationState = userInfos.data.activation_state;
+                        $scope.accountType = userInfos.data.account_type;
+                        $scope.userInfos = userInfos.data;
+                    })
             }
         }
     })
