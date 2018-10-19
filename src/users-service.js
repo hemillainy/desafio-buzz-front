@@ -5,15 +5,15 @@ angular.module("adminScreen")
         };
 
         const _getUserSettings = function (id) {
-            return $http.get("https://api-desafio.herokuapp.com/settings" + id)
+            return $http.get("https://api-desafio.herokuapp.com/settings/" + id)
         };
 
         const _getUserInformations = function (id) {
-            return $http.get("https://api-desafio.herokuapp.com/users" + id)
+            return $http.get("https://api-desafio.herokuapp.com/users/" + id)
         };
 
         const _getProjectsInformations = function (id) {
-            return $http.get("http://localhost:3000/projects" + id);
+            return $http.get("http://localhost:3000/projects/" + id);
         }
 
         return {

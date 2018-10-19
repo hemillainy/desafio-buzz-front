@@ -14,12 +14,12 @@
     <div>
         <div>
             <div class="ui three item menu huge">
-                <a class="item" href="#users" ng-click="setViewUserInformations(true); setViewSettings()">USER</a>
-                <a class="item" href="#settings" ng-click="getUserSettings(); setViewSettings()">SETTINGS</a>
-                <a class="item" ng-click="getProjectsInformations()">STATS</a>
+                <a class="item" href="#users" ng-click="setViewUserInformations(true); setViewSettings(false); setViewStats(false)">USER</a>
+                <a class="item" href="#settings" ng-click="getUserSettings(); setViewUserInformations(false); setViewSettings(true); setViewStats(false)">SETTINGS</a>
+                <a class="item" ng-click="getProjectsInformations(); setViewUserInformations(false); setViewSettings(false); setViewStats(true)">STATS</a>
             </div>
 
-            <div class="ui segment" style="margin-top: 0px;padding-top: 0px;bottom: 15px;width: 1127px;height: 425px;padding-bottom: 20px;">
+            <div class="ui segment" style="margin-top: 0px;padding-top: 0px;bottom: 15px;width: 100%;height: 425px;padding-bottom: 40%;">
                 <div ng-if="viewUserInformations">
                     <table style="border:none; width: 90%" class="ui basic table">
                         <tbody>
@@ -130,14 +130,8 @@
                     </table>
                 </div>
 
-                <div>
+                <div ng-if="viewStats">
                     <table style="border:none; width: 90%" class="ui basic table">
-                        <!-- <thead>
-                                <tr style="border-bottom: none; background: none">
-                                    <th>Module</th>
-                                    <th style="width: 92px; padding-left: 40px">Able</th>
-                                </tr>
-                            </thead> -->
                         <tbody>
                             <tr style="border-top: none">
                                 <td style="border-top: none">Total quota:</td>

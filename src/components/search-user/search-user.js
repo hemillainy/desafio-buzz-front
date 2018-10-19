@@ -6,6 +6,7 @@ angular.module("adminScreen")
             let userSearched;
             $scope.viewSettings = false;
             $scope.viewUserInformations = false;
+            $scope.viewStats = false;
 
             $scope.searchUser = function () {
                 email = document.getElementById("email").value;
@@ -36,7 +37,7 @@ angular.module("adminScreen")
             getUserInformations = function () {
                 usersAPI.getUserInformations(userSearched.id)
                     .then(userInfos => {
-                        setViewUserInformations();
+                        setViewUserInformations(true);
                         $scope.userEmail = userInfos.data.email;
                         $scope.userPassword = userInfos.data.password;
                         $scope.activationState = userInfos.data.activation_state;
@@ -92,6 +93,15 @@ angular.module("adminScreen")
             }
 
             $scope.setViewUserInformations = setViewUserInformations;
+
+            $scope.setViewStats = function (operation) {
+                if (!$scope.viewStats) {
+                    $scope.viewStats = operation;
+                } else {
+                    $scope.viewStats = !$scope.viewStats;
+                }
+            }
+
 
         }
     })
