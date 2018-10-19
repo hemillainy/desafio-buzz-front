@@ -4,6 +4,8 @@ angular.module("adminScreen")
         controller: function ($scope, usersAPI) {
 
             let userSearched;
+            $scope.viewSettings = false;
+            $scope.viewUserInformations = false;
 
             $scope.searchUser = function () {
                 email = document.getElementById("email").value;
@@ -16,6 +18,7 @@ angular.module("adminScreen")
                         })
                         userSearched = user[0];
                         $scope.userSearched = userSearched;
+                        getUserInformations();
                     });
             }
 
@@ -30,6 +33,24 @@ angular.module("adminScreen")
                         setCheckbox(settings.data);
                     });
             }
+            getUserInformations = function () {
+                usersAPI.getUserInformations(userSearched.id)
+                    .then(userInfos => {
+                        setViewUserInformations();
+                        $scope.userEmail = userInfos.data.email;
+                        $scope.userPassword = userInfos.data.password;
+                        $scope.activationState = userInfos.data.activation_state;
+                        $scope.accountType = userInfos.data.account_type;
+                        $scope.userInfos = userInfos.data;
+                        document.getElementById("totalQuota").value = userInfos.data.total_quota;
+                    })
+            }
+
+            getProjectsInformations = function() {
+                usersAPI.getProjectsInformations(userSearched.id)
+                .then()
+            }
+
             setCheckbox = function (settings) {
                 if (settings.brands_limited) {
                     document.getElementById("check1").checked = true;
@@ -58,20 +79,11 @@ angular.module("adminScreen")
                 $scope.viewSettings = !$scope.viewSettings;
             }
 
-            $scope.setViewUserInformations = function () {
+            setViewUserInformations = function () {
                 $scope.viewUserInformations = !$scope.viewUserInformations;
             }
 
-            $scope.getUserInformations = function () {
-                usersAPI.getUserInformations(userSearched.id)
-                    .then(userInfos => {
-                        console.log(userInfos.data)
-                        $scope.userEmail = userInfos.data.email;
-                        $scope.userPassword = userInfos.data.password;
-                        $scope.activationState = userInfos.data.activation_state;
-                        $scope.accountType = userInfos.data.account_type;
-                        $scope.userInfos = userInfos.data;
-                    })
-            }
+            $scope.setViewUserInformations = setViewUserInformations;
+
         }
     })

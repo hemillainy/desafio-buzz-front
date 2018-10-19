@@ -5,16 +5,21 @@ angular.module("adminScreen")
         };
 
         const _getUserSettings = function (id) {
-            return $http.get("http://localhost:3000/settings/"+id)
+            return $http.get("http://localhost:3000/settings/" + id)
         };
 
-        const _getUserInformations = function(id) {
-            return $http.get("http://localhost:3000/users/"+id)
+        const _getUserInformations = function (id) {
+            return $http.get("http://localhost:3000/users/" + id)
         };
+
+        const _getProjectsInformations = function (id) {
+            return $http.get("http://localhost:3000/projects/" + id);
+        }
 
         return {
             getUsers: _getUsers,
             getUserSettings: _getUserSettings,
-            getUserInformations: _getUserInformations
+            getUserInformations: _getUserInformations,
+            getProjectsInformations: _getProjectsInformations
         }
     })
