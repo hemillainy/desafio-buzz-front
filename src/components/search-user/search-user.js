@@ -46,9 +46,9 @@ angular.module("adminScreen")
                     })
             }
 
-            getProjectsInformations = function() {
+            getProjectsInformations = function () {
                 usersAPI.getProjectsInformations(userSearched.id)
-                .then()
+                    .then()
             }
 
             setCheckbox = function (settings) {
@@ -75,12 +75,20 @@ angular.module("adminScreen")
                 }
             }
 
-            $scope.setViewSettings = function () {
-                $scope.viewSettings = !$scope.viewSettings;
+            $scope.setViewSettings = function (operation) {
+                if (!$scope.viewSettings) {
+                    $scope.viewSettings = operation;
+                } else {
+                    $scope.viewSettings = !$scope.viewSettings;
+                }
             }
 
-            setViewUserInformations = function () {
-                $scope.viewUserInformations = !$scope.viewUserInformations;
+            setViewUserInformations = function (operation) {
+                if (!$scope.viewUserInformations) {
+                    $scope.viewUserInformations = operation;
+                } else {
+                    $scope.viewUserInformations = !$scope.viewUserInformations;
+                }
             }
 
             $scope.setViewUserInformations = setViewUserInformations;
