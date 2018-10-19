@@ -1,8 +1,17 @@
 div#search {
-    width: 515px;
+    width: 28%;
     position: absolute;
-    left: 430px;
+    margin-left: 36%;
 }
+
+div#btns {
+    text-align: center
+}
+
+button#first {
+    margin-right: 10px;
+}
+
 
 td#editOption {
     text-align: center
