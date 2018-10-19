@@ -19,17 +19,61 @@
                 <a class="item">STATS</a>
             </div>
 
-            
+
             <div class="ui segment" style="margin-top: 0px;padding-top: 0px;bottom: 15px;width: 1127px;height: 425px;padding-bottom: 20px;">
-                <div>
-                    aaaaaaaaaaaa
-                    {{activationState}}
-                    {{accountType}}
+                <div ng-ig="viewUserInformations">
+                    <table style="border:none; width: 90%" class="ui basic table">
+                        <tbody>
+                            <tr style="border-top: none">
+                                <td style="border-top: none">User</td>
+                                <td style="border-top: none">{{userEmail}}</td>
+                            </tr>
+                            <tr style="border-top: none">
+                                <td style="border-top: none">Activation state</td>
+                                <td style="border-top: none">
+                                    <div class="ui compact menu">
+                                        <div class="ui simple dropdown item">
+                                            {{activationState}}
+                                            <i class="dropdown icon"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr style="border-top: none">
+                                <td style="border-top: none">Account type*</td>
+                                <td style="border-top: none">
+                                    <div class="ui compact menu">
+                                        <div class="ui simple dropdown item">
+                                            {{accountType}}
+                                            <i class="dropdown icon"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr style="border-top: none">
+                                <td style="border-top: none">Password</td>
+                                <td style="border-top: none">
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr style="border-top: none">
+                                <td style="border-top: none">Password confirmation</td>
+                                <td style="border-top: none">
+                                    <div class="ui input">
+                                        <input type="text">
+                                    </div>
+                                </td>
+                            </tr>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 <h2 class="ui right floated header"></h2>
-                <div id="settingsTable" ng-if="viewSettings">
-                    <table style="border:none" class="ui single line table">
+                <div id="settingsTable" ng-if="viewSettings" style="padding-left: 85px">
+                    <table style="border:none" class="ui basic table">
                         <thead>
                             <tr style="border-bottom: none; background: none">
                                 <th>Name</th>
@@ -63,7 +107,7 @@
 
                     <div style="width: 332.5%;height: 2px" class="ui fitted divider fluid"></div>
 
-                    <table style="border:none; width: 90%" class="ui single line table">
+                    <table style="border:none; width: 90%" class="ui basic table">
                         <thead>
                             <tr style="border-bottom: none; background: none">
                                 <th>Module</th>

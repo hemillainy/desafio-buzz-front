@@ -66,6 +66,7 @@ angular.module("adminScreen")
                 usersAPI.getUserInformations(userSearched.id)
                     .then(userInfos => {
                         console.log(userInfos.data)
+                        $scope.userEmail = userInfos.data.email;
                         $scope.userPassword = userInfos.data.password;
                         $scope.activationState = userInfos.data.activation_state;
                         $scope.accountType = userInfos.data.account_type;
