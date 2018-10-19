@@ -1,7 +1,7 @@
 div#listing {
-    width: 430px;
-    height: 352px;
-}
+    width: 22%;
+    margin-left: 39%;
+} 
 
 td#userEmail {
     text-align: initial;
@@ -13,12 +13,4 @@ td#check {
 
 div#options-btn {
     float: right
-}
-
-button#edit, button#edit {
-    margin-right: 20px;
-}
-
-td#check {
-
 }

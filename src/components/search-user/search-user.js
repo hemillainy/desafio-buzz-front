@@ -7,6 +7,7 @@ angular.module("adminScreen")
             $scope.viewSettings = false;
             $scope.viewUserInformations = false;
             $scope.viewStats = false;
+            $scope.viewTabs = false;
 
             $scope.searchUser = function () {
                 email = document.getElementById("email").value;
@@ -102,6 +103,8 @@ angular.module("adminScreen")
                 }
             }
 
-
+            $scope.setViewTabs = function () {
+                $scope.viewTabs = !$scope.viewTabs;
+            }
         }
     })

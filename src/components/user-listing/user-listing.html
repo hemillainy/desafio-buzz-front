@@ -1,23 +1,23 @@
 <div id="listing" class="container border">
-    <table class="table table-borderless">
+    <table style="border:none" class="ui basic table">
         <thead>
-            <tr>
-                <th id="listing" scope="col">User</th>
-                <th id="listing" scope="col">Select</th>
+            <tr style="border-bottom: none; background: none">
+                <th>User</th>
+                <th>Select</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-            <tr ng-repeat="user in users">
-                <td id="email">{{user.email}}</td>
-                <td id="check"><input type="checkbox"></td>
-            </tr>
+                <tr ng-repeat="user in users">
+                    <td id="email">{{user.email}}</td>
+                    <td id="check"><input type="checkbox"></td>
+                </tr>
             </tr>
         </tbody>
     </table>
     <div id="options-btn">
-        <button id="edit" type="button" class="btn-sm btn btn-primary" ng-click="setViewSearch()">Edit settings</button>
-        <button id="quota" type="button" class="btn-sm btn btn-primary" ng-click="setViewSearch()">Add quota</button>
+        <button id="edit" type="button" class="ui primary button" ng-click="setViewSearch()">Edit settings</button>
+        <button id="quota" type="button" class="ui primary button" ng-click="setViewSearch()">Add quota</button>
     </div>
     <br>
 </div>

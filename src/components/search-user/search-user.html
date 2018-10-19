@@ -4,7 +4,7 @@
         <div class="form-group">
             <div class="ui fluid action input">
                 <input id="email" type="text" placeholder="Search emails and report IDs/URLs">
-                <button id="btn-search" class="ui primary button" ng-click="searchUser()">Search</button>
+                <button id="btn-search" class="ui primary button" ng-click="searchUser(); setViewTabs()">Search</button>
             </div>
         </div>
     </form>
@@ -12,7 +12,7 @@
 <br><br><br><br>
 <div class="ui container">
     <div>
-        <div>
+        <div ng-if="viewTabs">
             <div class="ui three item menu huge">
                 <a class="item" href="#users" ng-click="setViewUserInformations(true); setViewSettings(false); setViewStats(false)">USER</a>
                 <a class="item" href="#settings" ng-click="getUserSettings(); setViewUserInformations(false); setViewSettings(true); setViewStats(false)">SETTINGS</a>
