@@ -12,8 +12,8 @@ angular.module("adminScreen")
             return $http.get("https://api-desafio.herokuapp.com/users/" + id)
         };
 
-        const _getProjectsInformations = function (id) {
-            return $http.get("http://localhost:3000/projects/" + id);
+        const _getProjectsInformations = function () {
+            return $http.get("https://api-desafio.herokuapp.com/projects");
         }
 
         return {

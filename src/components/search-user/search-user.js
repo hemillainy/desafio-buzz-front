@@ -35,6 +35,27 @@ angular.module("adminScreen")
                         setCheckbox(settings.data);
                     });
             }
+
+            $scope.getStats = function () {
+                usersAPI.getUserInformations(userSearched.id)
+                    .then(userInfos => {
+                        document.getElementById("totalQuota").value = userInfos.data.total_quota;
+                        getProjectsInformations();
+                    })
+            }
+
+            getProjectsInformations = function () {
+                usersAPI.getProjectsInformations()
+                    .then(projectsInfo => {
+                        projects = projectsInfo.data.filter(a => {
+                            if (a.user_id == userSearched.id) {
+                                return a;
+                            }
+                        });
+                        $scope.projects = projects; 
+                    })
+            }
+
             getUserInformations = function () {
                 usersAPI.getUserInformations(userSearched.id)
                     .then(userInfos => {
@@ -44,14 +65,9 @@ angular.module("adminScreen")
                         $scope.activationState = userInfos.data.activation_state;
                         $scope.accountType = userInfos.data.account_type;
                         $scope.userInfos = userInfos.data;
-                        document.getElementById("totalQuota").value = userInfos.data.total_quota;
                     })
             }
 
-            getProjectsInformations = function () {
-                usersAPI.getProjectsInformations(userSearched.id)
-                    .then()
-            }
 
             setCheckbox = function (settings) {
                 if (settings.brands_limited) {

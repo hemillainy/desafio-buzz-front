@@ -16,7 +16,7 @@
             <div class="ui three item menu huge">
                 <a class="item" href="#users" ng-click="setViewUserInformations(true); setViewSettings(false); setViewStats(false)">USER</a>
                 <a class="item" href="#settings" ng-click="getUserSettings(); setViewUserInformations(false); setViewSettings(true); setViewStats(false)">SETTINGS</a>
-                <a class="item" ng-click="getProjectsInformations(); setViewUserInformations(false); setViewSettings(false); setViewStats(true)">STATS</a>
+                <a class="item" ng-click="getStats(); setViewUserInformations(false); setViewSettings(false); setViewStats(true)">STATS</a>
             </div>
 
             <div class="ui segment" style="margin-top: 0px;padding-top: 0px;bottom: 15px;width: 100%;height: 425px;padding-bottom: 40%;">
@@ -74,16 +74,16 @@
                     <table style="border:none" class="ui basic table">
                         <thead>
                             <tr style="border-bottom: none; background: none">
-                                <th>Name</th>
-                                <th>Limited</th>
-                                <th>Edit limit</th>
+                                <th style="border-bottom: none">Name</th>
+                                <th style="border-bottom: none">Limited</th>
+                                <th style="border-bottom: none">Edit limit</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr style="border-top: none">
                                 <td style="border-top: none">Brands limit</td>
                                 <td style="border-top: none" id="check"><input id="check1" type="checkbox"></td>
-                                <td style="border-top: none" id="editOption"><i class="edit icon"></i></td>
+                                <td style="border-top: none" id="editOption"><i type="button" class="edit icon"></i></td>
                             </tr>
                             <tr style="border-top: none">
                                 <td style="border-top: none">Collected posts per mounth limit</td>
@@ -103,13 +103,13 @@
                         </tbody>
                     </table>
 
-                    <div style="width: 332.5%;height: 2px" class="ui fitted divider fluid"></div>
+                    <div style="width: 90%;height: 2px;margin-left: 55px;" class="ui fitted divider fluid"></div>
 
-                    <table style="border:none; width: 90%" class="ui basic table">
+                    <table style="border:none; width: 85%" class="ui basic table">
                         <thead>
                             <tr style="border-bottom: none; background: none">
-                                <th>Module</th>
-                                <th style="width: 92px; padding-left: 40px">Able</th>
+                                <th style="border-bottom: none">Module</th>
+                                <th style="width: 38%; padding-left: 15%; border-bottom: none">Able</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -131,62 +131,56 @@
                 </div>
 
                 <div ng-if="viewStats">
-                    <table style="border:none; width: 90%" class="ui basic table">
-                        <tbody>
-                            <tr style="border-top: none">
-                                <td style="border-top: none">Total quota:</td>
-                                <td style="border-top: none" id="check">
-                                    <div class="ui compact menu">
-                                        <div class="ui input">
-                                            <input id="totalQuota" type="text">
+                    <div id="quotaInfo">
+                        <table style="border: none" class="ui basic table">
+                            <tbody>
+                                <tr style="border-top: none">
+                                    <td style="border-top: none">Total quota:</td>
+                                    <td style="border-top: none" id="check">
+                                        <div class="ui compact menu">
+                                            <div class="ui input">
+                                                <input id="totalQuota" type="text">
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr style="border-top: none">
-                                <td style="border-top: none">Current quota:</td>
-                                <td style="border-top: none" id="check">{{currentQuota}}</td>
-                            </tr>
-                            <tr style="border-top: none">
-                                <td style="border-top: none">Quota used:</td>
-                                <td style="border-top: none" id="check">{{}}</td>
-                            </tr>
-                            </tr>
-                        </tbody>
-                    </table>
+                                    </td>
+                                </tr>
+                                <tr style="border-top: none">
+                                    <td style="border-top: none">Current quota:</td>
+                                    <td style="border-top: none" id="check">{{currentQuota}}</td>
+                                </tr>
+                                <tr style="border-top: none">
+                                    <td style="border-top: none">Quota used:</td>
+                                    <td style="border-top: none" id="check">{{}}</td>
+                                </tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
+                    <br>
                     <div style="width: 90%;height: 2px;margin-left: 55px;" class="ui fitted divider fluid"></div>
+                    <br>
 
-                    <table id="statsTable" style="border:none" class="ui basic table">
-                        <thead>
-                            <tr style="border-bottom: none; background: none">
-                                <th>Brand</th>
-                                <th>Consumption</th>
-                                <th>%</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-top: none">
-                                <td style="border-top: none">Brands limit</td>
-                                <td style="border-top: none"></td>
-                                <td style="border-top: none"></td>
-                            </tr>
-                            <tr style="border-top: none">
-                                <td style="border-top: none">Collected posts per mounth limit</td>
-                                <td style="border-top: none"></td>
-                                <td style="border-top: none"></td>
-                            </tr>
-                            <tr style="border-top: none">
-                                <td style="border-top: none">Analytics profiles limit</td>
-                                <td style="border-top: none"></td>
-                                <td style="border-top: none"></td>
-                            </tr>
-                            <tr style="border-top: none">
-                                <td style="border-top: none">Crm profile limit</td>
-                                <td style="border-top: none"></td>
-                                <td style="border-top: none"></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div id="statsTable">
+                        <table style="border:none" class="ui basic table">
+                            <thead>
+                                <tr style="border-bottom: none; background: none">
+                                    <th style="border-bottom: none">Brand</th>
+                                    <th style="border-bottom: none">Consumption</th>
+                                    <th style="border-bottom: none">%</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-top: none" ng-repeat="project in projects">
+                                    <td style="border-top: none">
+                                        {{project.name}}
+                                    </td>
+                                    <td id="quotaUsed" style="border-top: none">
+                                        {{project.quota_used}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>

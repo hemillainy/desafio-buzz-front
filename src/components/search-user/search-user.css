@@ -4,17 +4,12 @@ div#search {
     margin-left: 36%;
 }
 
-div#btns {
+div#btns, td#editOption, div#viewSetting, td#quotaUsed {
     text-align: center
 }
 
 button#first {
     margin-right: 10px;
-}
-
-
-td#editOption {
-    text-align: center
 }
 
 .form-group {
@@ -25,12 +20,18 @@ input#email {
     width: 436px;
 }
 
-div#viewSetting{
-    text-align: center
-}
-
 div#settingsTable {
-    width: 30%;
+    width: 45%;
     margin-right: 0px;
     border-right-width: 0px;
 }
+
+div#quotaInfo {
+    width: 28%;
+    margin-left: 30px;
+}
+
+div#statsTable {
+    width: 22%;
+    margin-left: 3%;
+} 
