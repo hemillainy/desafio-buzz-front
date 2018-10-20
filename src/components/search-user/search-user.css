@@ -8,6 +8,10 @@ div#btns, td#editOption, div#viewSetting, td#quotaUsed {
     text-align: center
 }
 
+div#viewSetting, div#userStats {
+    padding-left: 5%;
+}
+
 button#first {
     margin-right: 10px;
 }
@@ -20,18 +24,33 @@ input#email {
     width: 436px;
 }
 
-div#settingsTable {
+.settingsTable {
     width: 45%;
     margin-right: 0px;
     border-right-width: 0px;
 }
 
 div#quotaInfo {
-    width: 28%;
+    width: 35%;
     margin-left: 30px;
 }
 
 div#statsTable {
-    width: 22%;
+    width: 25%;
     margin-left: 3%;
 } 
+
+div#userInfo {
+    width: 45%;
+    margin-right: 0px;
+    border-right-width: 0px
+}
+
+.atributte {
+    text-align: right;
+}
+
+.iptSetting {
+    width: 60px;
+    height: 35px;
+}

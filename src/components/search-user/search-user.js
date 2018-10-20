@@ -52,7 +52,7 @@ angular.module("adminScreen")
                                 return a;
                             }
                         });
-                        $scope.projects = projects; 
+                        $scope.projects = projects;
                     })
             }
 
@@ -93,34 +93,41 @@ angular.module("adminScreen")
                 }
             }
 
-            $scope.setViewSettings = function (operation) {
-                if (!$scope.viewSettings) {
-                    $scope.viewSettings = operation;
-                } else {
-                    $scope.viewSettings = !$scope.viewSettings;
-                }
+
+            $scope.setViews = function (tab1, tab2, tab3) {
+                $scope.viewUserInformations = tab1;
+                $scope.viewSettings = tab2;
+                $scope.viewStats = tab3;
             }
+
+            // $scope.setViewSettings = function (operation) {
+            //     if (!$scope.viewSettings) {
+            //         $scope.viewSettings = operation;
+            //     } else {
+            //         $scope.viewSettings = true;
+            //     }
+            // }
 
             setViewUserInformations = function (operation) {
                 if (!$scope.viewUserInformations) {
                     $scope.viewUserInformations = operation;
                 } else {
-                    $scope.viewUserInformations = !$scope.viewUserInformations;
+                    $scope.viewUserInformations = true;
                 }
             }
 
             $scope.setViewUserInformations = setViewUserInformations;
 
-            $scope.setViewStats = function (operation) {
-                if (!$scope.viewStats) {
-                    $scope.viewStats = operation;
-                } else {
-                    $scope.viewStats = !$scope.viewStats;
-                }
-            }
+            // $scope.setViewStats = function (operation) {
+            //     if (!$scope.viewStats) {
+            //         $scope.viewStats = operation;
+            //     } else {
+            //         $scope.viewStats = true;
+            //     }
+            // }
 
             $scope.setViewTabs = function () {
-                $scope.viewTabs = !$scope.viewTabs;
+                $scope.viewTabs = true;
             }
         }
     })

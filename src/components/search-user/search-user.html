@@ -14,21 +14,21 @@
     <div>
         <div ng-if="viewTabs">
             <div class="ui three item menu huge">
-                <a class="item" href="#users" ng-click="setViewUserInformations(true); setViewSettings(false); setViewStats(false)">USER</a>
-                <a class="item" href="#settings" ng-click="getUserSettings(); setViewUserInformations(false); setViewSettings(true); setViewStats(false)">SETTINGS</a>
-                <a class="item" ng-click="getStats(); setViewUserInformations(false); setViewSettings(false); setViewStats(true)">STATS</a>
+                <a class="item" href="#users" ng-click="setViews(true, false, false)">USER</a>
+                <a class="item" href="#settings" ng-click="getUserSettings(); setViews(false, true, false)">SETTINGS</a>
+                <a class="item" ng-click="getStats(); setViews(false, false, true)">STATS</a>
             </div>
 
             <div class="ui segment" style="margin-top: 0px;padding-top: 0px;bottom: 15px;width: 100%;height: 425px;padding-bottom: 40%;">
-                <div ng-if="viewUserInformations">
+                <div id="userInfo" ng-if="viewUserInformations">
                     <table style="border:none; width: 90%" class="ui basic table">
                         <tbody>
                             <tr style="border-top: none">
-                                <td style="border-top: none">User</td>
+                                <td style="border-top: none; text-align: right">User</td>
                                 <td style="border-top: none">{{userEmail}}</td>
                             </tr>
                             <tr style="border-top: none">
-                                <td style="border-top: none">Activation state</td>
+                                <td class="atributte" style="border-top: none; text-align: right">Activation state</td>
                                 <td style="border-top: none">
                                     <div class="ui compact menu">
                                         <div class="ui simple dropdown item">
@@ -39,7 +39,7 @@
                                 </td>
                             </tr>
                             <tr style="border-top: none">
-                                <td style="border-top: none">Account type*</td>
+                                <td class="atributte" style="border-top: none; text-align: right">Account type*</td>
                                 <td style="border-top: none">
                                     <div class="ui compact menu">
                                         <div class="ui simple dropdown item">
@@ -50,7 +50,7 @@
                                 </td>
                             </tr>
                             <tr style="border-top: none">
-                                <td style="border-top: none">Password</td>
+                                <td class="atributte" style="border-top: none; text-align: right">Password</td>
                                 <td style="border-top: none">
                                     <div class="ui input">
                                         <input type="text">
@@ -58,11 +58,9 @@
                                 </td>
                             </tr>
                             <tr style="border-top: none">
-                                <td style="border-top: none">Password confirmation</td>
+                                <td class="atributte" style="border-top: none; text-align: right">Password confirmation</td>
                                 <td style="border-top: none">
-                                    <div class="ui input">
-                                        <input type="text">
-                                    </div>
+                                    <div class="ui input"><input type="text"></div>
                                 </td>
                             </tr>
                             </tr>
@@ -70,76 +68,88 @@
                     </table>
                 </div>
                 <!-- <h2 class="ui right floated header"></h2> -->
-                <div id="settingsTable" ng-if="viewSettings" style="padding-left: 85px">
-                    <table style="border:none" class="ui basic table">
-                        <thead>
-                            <tr style="border-bottom: none; background: none">
-                                <th style="border-bottom: none">Name</th>
-                                <th style="border-bottom: none">Limited</th>
-                                <th style="border-bottom: none">Edit limit</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-top: none">
-                                <td style="border-top: none">Brands limit</td>
-                                <td style="border-top: none" id="check"><input id="check1" type="checkbox"></td>
-                                <td style="border-top: none" id="editOption"><i type="button" class="edit icon"></i></td>
-                            </tr>
-                            <tr style="border-top: none">
-                                <td style="border-top: none">Collected posts per mounth limit</td>
-                                <td style="border-top: none" id="check"><input id="check2" type="checkbox"></td>
-                                <td style="border-top: none" id="editOption"><i class="edit icon"></i></td>
-                            </tr>
-                            <tr style="border-top: none">
-                                <td style="border-top: none">Analytics profiles limit</td>
-                                <td style="border-top: none" id="check"><input id="check3" type="checkbox"></td>
-                                <td style="border-top: none" id="editOption"><i class="edit icon"></i></td>
-                            </tr>
-                            <tr style="border-top: none">
-                                <td style="border-top: none">Crm profile limit</td>
-                                <td style="border-top: none" id="check"><input id="check4" type="checkbox"></td>
-                                <td style="border-top: none" id="editOption"><i class="edit icon"></i></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div ng-if="viewSettings" style="padding-left: 85px">
+                    <div class="settingsTable">
+                        <table style="border:none" class="ui basic table">
+                            <thead>
+                                <tr style="border-bottom: none; background: none">
+                                    <th style="border-bottom: none">Name</th>
+                                    <th style="border-bottom: none">Limited</th>
+                                    <th style="border-bottom: none; padding-left: 6.5%">Limit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-top: none">
+                                    <td style="border-top: none">Brands limit</td>
+                                    <td style="border-top: none" id="check"><input id="check1" type="checkbox"></td>
+                                    <td style="border-top: none" id="editOption">
+                                        <div class="ui input"><input class="iptSetting" type="text"></div>
+                                    </td>
+                                </tr>
+                                <tr style="border-top: none">
+                                    <td style="border-top: none">Collected posts per mounth limit</td>
+                                    <td style="border-top: none" id="check"><input id="check2" type="checkbox"></td>
+                                    <td style="border-top: none" id="editOption">
+                                        <div class="ui input"><input class="iptSetting" type="text"></div>
+                                    </td>
+                                </tr>
+                                <tr style="border-top: none">
+                                    <td style="border-top: none">Analytics profiles limit</td>
+                                    <td style="border-top: none" id="check"><input id="check3" type="checkbox"></td>
+                                    <td style="border-top: none" id="editOption">
+                                        <div class="ui input"><input class="iptSetting" type="text"></div>
+                                    </td>
+                                </tr>
+                                <tr style="border-top: none">
+                                    <td style="border-top: none">Crm profile limit</td>
+                                    <td style="border-top: none" id="check"><input id="check4" type="checkbox"></td>
+                                    <td style="border-top: none" id="editOption">
+                                        <div class="ui input"><input class="iptSetting" type="text"></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <div style="width: 90%;height: 2px;margin-left: 55px;" class="ui fitted divider fluid"></div>
 
-                    <table style="border:none; width: 85%" class="ui basic table">
-                        <thead>
-                            <tr style="border-bottom: none; background: none">
-                                <th style="border-bottom: none">Module</th>
-                                <th style="width: 38%; padding-left: 15%; border-bottom: none">Able</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-top: none">
-                                <td style="border-top: none">Active Analytics Pro</td>
-                                <td style="border-top: none" id="check"><input id="check5" type="checkbox"></td>
-                            </tr>
-                            <tr style="border-top: none">
-                                <td style="border-top: none">Active Dashboards</td>
-                                <td style="border-top: none" id="check"><input id="check6" type="checkbox"></td>
-                            </tr>
-                            <tr style="border-top: none">
-                                <td style="border-top: none">Active Historical Search</td>
-                                <td style="border-top: none" id="check"><input id="check7" type="checkbox"></td>
-                            </tr>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="settingsTable">
+                        <table style="border:none; width: 85%" class="ui basic table">
+                            <thead>
+                                <tr style="border-bottom: none; background: none">
+                                    <th style="border-bottom: none">Module</th>
+                                    <th style="width: 38%; padding-left: 15%; border-bottom: none">Able</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-top: none">
+                                    <td style="border-top: none">Active Analytics Pro</td>
+                                    <td style="border-top: none" id="check"><input id="check5" type="checkbox"></td>
+                                </tr>
+                                <tr style="border-top: none">
+                                    <td style="border-top: none">Active Dashboards</td>
+                                    <td style="border-top: none" id="check"><input id="check6" type="checkbox"></td>
+                                </tr>
+                                <tr style="border-top: none">
+                                    <td style="border-top: none">Active Historical Search</td>
+                                    <td style="border-top: none" id="check"><input id="check7" type="checkbox"></td>
+                                </tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
-                <div ng-if="viewStats">
+                <div id="userStats" ng-if="viewStats">
                     <div id="quotaInfo">
-                        <table style="border: none" class="ui basic table">
+                        <table style="border: none; width: 60%;" class="ui basic table">
                             <tbody>
                                 <tr style="border-top: none">
                                     <td style="border-top: none">Total quota:</td>
                                     <td style="border-top: none" id="check">
                                         <div class="ui compact menu">
                                             <div class="ui input">
-                                                <input id="totalQuota" type="text">
+                                                <input class="iptSetting" id="totalQuota" type="text">
                                             </div>
                                         </div>
                                     </td>
@@ -175,7 +185,7 @@
                                     <td style="border-top: none">
                                         {{project.name}}
                                     </td>
-                                    <td id="quotaUsed" style="border-top: none">
+                                    <td id="quotaUsed" style="border-top: none; width: 20%">
                                         {{project.quota_used}}
                                     </td>
                                 </tr>
