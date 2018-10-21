@@ -150,7 +150,6 @@ angular.module("adminScreen")
                 } else {
                     total_quota = userSearched.total_quota;
                 }
-                console.log(total_quota);
                 activation_state = userSearched.activation_state;
                 account_type = userSearched.account_type;
                 usersAPI.updateUser(id, email, password, total_quota, activation_state, account_type);
