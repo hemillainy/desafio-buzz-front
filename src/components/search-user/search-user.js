@@ -8,6 +8,7 @@ angular.module("adminScreen")
             $scope.viewUserInformations = false;
             $scope.viewStats = false;
             $scope.viewTabs = false;
+            $scope.passwordSco = "";
 
             $scope.searchUser = function () {
                 email = document.getElementById("email").value;
@@ -40,19 +41,23 @@ angular.module("adminScreen")
                 usersAPI.getUserInformations(userSearched.id)
                     .then(userInfos => {
                         document.getElementById("totalQuota").value = userInfos.data.total_quota;
+                        $total = userInfos.data.total_quota;
                         getProjectsInformations();
                     })
             }
 
             getProjectsInformations = function () {
-                usersAPI.getProjectsInformations()
-                    .then(projectsInfo => {
-                        projects = projectsInfo.data.filter(a => {
+                usersAPI.getProjects()
+                    .then(projects => {
+                        projects = projects.data.filter(a => {
                             if (a.user_id == userSearched.id) {
-                                return a;
+                                return a.quota_used;
                             }
                         });
-                        $scope.projects = projects;
+                        $scope.projects = projects.sort((a, b) => {
+                            return b.quota_used - a.quota_used;
+                        });
+                        console.log($scope.projects)
                     })
             }
 
@@ -93,20 +98,11 @@ angular.module("adminScreen")
                 }
             }
 
-
             $scope.setViews = function (tab1, tab2, tab3) {
                 $scope.viewUserInformations = tab1;
                 $scope.viewSettings = tab2;
                 $scope.viewStats = tab3;
             }
-
-            // $scope.setViewSettings = function (operation) {
-            //     if (!$scope.viewSettings) {
-            //         $scope.viewSettings = operation;
-            //     } else {
-            //         $scope.viewSettings = true;
-            //     }
-            // }
 
             setViewUserInformations = function (operation) {
                 if (!$scope.viewUserInformations) {
@@ -118,16 +114,45 @@ angular.module("adminScreen")
 
             $scope.setViewUserInformations = setViewUserInformations;
 
-            // $scope.setViewStats = function (operation) {
-            //     if (!$scope.viewStats) {
-            //         $scope.viewStats = operation;
-            //     } else {
-            //         $scope.viewStats = true;
-            //     }
-            // }
-
             $scope.setViewTabs = function () {
                 $scope.viewTabs = true;
+            }
+
+            $scope.save = function () {
+                id = userSearched.id;
+                email = userSearched.email;
+                if (document.getElementById("password") !== null) {
+                    password = document.getElementById("password").value;
+                } else {
+                    password = userSearched.password;
+                }
+                if (document.getElementById("totalQuota") !== null) {
+                    total_quota = document.getElementById("totalQuota").value;
+                } else {
+                    total_quota = userSearched.total_quota;
+                }
+                activation_state = userSearched.activation_state;
+                account_type = userSearched.account_type;
+                usersAPI.save(id, email, password, total_quota, activation_state, account_type);
+            }
+
+            $scope.quotaInformation = function () {
+                usersAPI.getProjects()
+                    .then(projects => {
+                        let quotaUsed = 0;
+                        for (let i = 0; i < projects.data.length; i++) {
+                            quotaUsed += projects.data[i].quota_used;
+                        }
+
+                        $scope.currentQuota = userSearched.total_quota - quotaUsed;
+                        $scope.quotaUsed = quotaUsed;
+                    });
+            }
+
+            // perc = 
+
+            $scope.perc = function (used) {
+                return ((used / userSearched.total_quota) * 100).toFixed(2);
             }
         }
     })

@@ -16,7 +16,7 @@
             <div class="ui three item menu huge">
                 <a class="item" href="#users" ng-click="setViews(true, false, false)">USER</a>
                 <a class="item" href="#settings" ng-click="getUserSettings(); setViews(false, true, false)">SETTINGS</a>
-                <a class="item" ng-click="getStats(); setViews(false, false, true)">STATS</a>
+                <a class="item" ng-click="getStats(); setViews(false, false, true); quotaInformation()">STATS</a>
             </div>
 
             <div class="ui segment" style="margin-top: 0px;padding-top: 0px;bottom: 15px;width: 100%;height: 425px;padding-bottom: 40%;">
@@ -53,14 +53,14 @@
                                 <td class="atributte" style="border-top: none; text-align: right">Password</td>
                                 <td style="border-top: none">
                                     <div class="ui input">
-                                        <input type="text">
+                                        <input type="password" id="password">
                                     </div>
                                 </td>
                             </tr>
                             <tr style="border-top: none">
                                 <td class="atributte" style="border-top: none; text-align: right">Password confirmation</td>
                                 <td style="border-top: none">
-                                    <div class="ui input"><input type="text"></div>
+                                    <div class="ui input"><input type="password"></div>
                                 </td>
                             </tr>
                             </tr>
@@ -147,7 +147,7 @@
                                 <tr style="border-top: none">
                                     <td style="border-top: none">Total quota:</td>
                                     <td style="border-top: none" id="check">
-                                        <div class="ui compact menu">
+                                        <div>
                                             <div class="ui input">
                                                 <input class="iptSetting" id="totalQuota" type="text">
                                             </div>
@@ -160,7 +160,7 @@
                                 </tr>
                                 <tr style="border-top: none">
                                     <td style="border-top: none">Quota used:</td>
-                                    <td style="border-top: none" id="check">{{}}</td>
+                                    <td style="border-top: none" id="check">{{quotaUsed}}</td>
                                 </tr>
                                 </tr>
                             </tbody>
@@ -177,7 +177,7 @@
                                 <tr style="border-bottom: none; background: none">
                                     <th style="border-bottom: none">Brand</th>
                                     <th style="border-bottom: none">Consumption</th>
-                                    <th style="border-bottom: none">%</th>
+                                    <th style="border-bottom: none;padding-left: 8%;">%</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -188,9 +188,15 @@
                                     <td id="quotaUsed" style="border-top: none; width: 20%">
                                         {{project.quota_used}}
                                     </td>
+                                    <td style="border-top: none">
+                                        {{perc(project.quota_used)}}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+            <button class="ui primary button btnSave" ng-click="save(); attView()">
+                Save
+            </button>

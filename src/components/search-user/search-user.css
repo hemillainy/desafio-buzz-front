@@ -54,3 +54,7 @@ div#userInfo {
     width: 60px;
     height: 35px;
 }
+
+.btnSave {
+    float: right;
+}
