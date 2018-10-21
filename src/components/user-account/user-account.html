@@ -196,7 +196,12 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <br>
                     </div>
+                    <div style="float: right">
+                        <button class="ui primary button btnSave" ng-click="save(); attView()">Pause Collection</button>
+                    </div>
+
                 </div>
                 <br>
                 <div ng-if="viewOther">
@@ -223,7 +228,5 @@
                     </table>
                 </div>
             </div>
-            <button class="ui primary button btnSave" ng-click="save(); attView()">
-                Save
-            </button>
+            <button class="ui primary button btnSave" ng-click="save(); attView()">Save</button>
             <br>
