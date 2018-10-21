@@ -4,7 +4,7 @@
         <div class="form-group">
             <div class="ui fluid action input">
                 <input id="email" type="text" placeholder="Search emails and report IDs/URLs">
-                <button id="btn-search" class="ui primary button" ng-click="searchUser(); setViewTabs()">Search</button>
+                <button id="btn-search" class="ui primary button" ng-click="searchUser(true); setViewTabs()">Search</button>
             </div>
         </div>
     </form>
@@ -14,8 +14,8 @@
     <div>
         <div ng-if="viewTabs">
             <div class="ui three item menu huge">
-                <a class="item" href="#users" ng-click="setViews(true, false, false)">USER</a>
-                <a class="item" href="#settings" ng-click="getUserSettings(); setViews(false, true, false)">SETTINGS</a>
+                <a class="item" href="#users" ng-click="setViews(true, false, false);">USER</a>
+                <a class="item" id="tabSettings" href="#settings" ng-click="getUserSettings(); setViews(false, true, false);">SETTINGS</a>
                 <a class="item" ng-click="getStats(); setViews(false, false, true); quotaInformation()">STATS</a>
             </div>
 
@@ -83,28 +83,29 @@
                                     <td style="border-top: none">Brands limit</td>
                                     <td style="border-top: none" id="check"><input id="check1" type="checkbox"></td>
                                     <td style="border-top: none" id="editOption">
-                                        <div class="ui input"><input class="iptSetting" type="text"></div>
+                                        <div class="ui input"><input id="brand_limit" class="iptSetting" type="text"></div>
                                     </td>
                                 </tr>
                                 <tr style="border-top: none">
                                     <td style="border-top: none">Collected posts per mounth limit</td>
                                     <td style="border-top: none" id="check"><input id="check2" type="checkbox"></td>
                                     <td style="border-top: none" id="editOption">
-                                        <div class="ui input"><input class="iptSetting" type="text"></div>
+                                        <div class="ui input"><input id="collected_posts_limit" class="iptSetting" type="text"></div>
                                     </td>
                                 </tr>
                                 <tr style="border-top: none">
                                     <td style="border-top: none">Analytics profiles limit</td>
                                     <td style="border-top: none" id="check"><input id="check3" type="checkbox"></td>
                                     <td style="border-top: none" id="editOption">
-                                        <div class="ui input"><input class="iptSetting" type="text"></div>
+                                        <div class="ui input"><input id="analytics_profile_limit" class="iptSetting"
+                                                type="text"></div>
                                     </td>
                                 </tr>
                                 <tr style="border-top: none">
                                     <td style="border-top: none">Crm profile limit</td>
                                     <td style="border-top: none" id="check"><input id="check4" type="checkbox"></td>
                                     <td style="border-top: none" id="editOption">
-                                        <div class="ui input"><input class="iptSetting" type="text"></div>
+                                        <div class="ui input"><input id="crm_profile_limit" class="iptSetting" type="text"></div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -200,3 +201,4 @@
             <button class="ui primary button btnSave" ng-click="save(); attView()">
                 Save
             </button>
+            <br>

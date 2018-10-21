@@ -16,8 +16,8 @@ angular.module("adminScreen")
             return $http.get("https://api-desafio.herokuapp.com/projects");
         }
 
-        const _save = function (id, email, password, total_quota, activation_state, account_type) {
-            updatedUser = {	
+        const _updateUser = function (id, email, password, total_quota, activation_state, account_type) {
+            updatedUser = {
                 "id": id,
                 "email": email,
                 "password": password,
@@ -29,11 +29,32 @@ angular.module("adminScreen")
             return $http.put("https://api-desafio.herokuapp.com/users/" + id, updatedUser);
         }
 
+        const _updateSetting = function (id, brands_limit, collected_limit, analytics_profile_limit, crm_profile_limit, brands_limited, collected_limited, analytics_profile_limited, crm_profile_limited, analytics_pro, dashboards, historial_search, userId) {
+            updatedSetting = {
+                "id": id,
+                "brands_limit": brands_limit,
+                "brands_limited": brands_limited,
+                "collected_limit": collected_limit,
+                "collected_limited": collected_limited,
+                "analytics_limit": analytics_profile_limit,
+                "analytics_limited": analytics_profile_limited,
+                "crm_limit": crm_profile_limit,
+                "crm_limited": crm_profile_limited,
+                "analytics_pro": analytics_pro,
+                "dashboards": dashboards,
+                "historial_search": historial_search,
+                "user_id": userId
+            }
+            console.log(updatedSetting)
+            return $http.put("https://api-desafio.herokuapp.com/settings/" + id, updatedSetting);
+        }
+
         return {
             getUsers: _getUsers,
             getUserSettings: _getUserSettings,
             getUserInformations: _getUserInformations,
             getProjects: _getProjects,
-            save: _save
+            updateUser: _updateUser,
+            updateSetting: _updateSetting
         }
     })

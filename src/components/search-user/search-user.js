@@ -4,13 +4,15 @@ angular.module("adminScreen")
         controller: function ($scope, usersAPI) {
 
             let userSearched;
+            let idSettings;
+            let totalQuota;
             $scope.viewSettings = false;
             $scope.viewUserInformations = false;
             $scope.viewStats = false;
             $scope.viewTabs = false;
             $scope.passwordSco = "";
 
-            $scope.searchUser = function () {
+            $scope.searchUser = function (viewUser) {
                 email = document.getElementById("email").value;
                 usersAPI.getUsers()
                     .then(users => {
@@ -20,19 +22,29 @@ angular.module("adminScreen")
                             }
                         })
                         userSearched = user[0];
+                        totalQuota = userSearched.total_quota;
                         $scope.userSearched = userSearched;
-                        getUserInformations();
+                        getUserInformations(viewUser);
                     });
             }
 
             $scope.getUserSettings = function () {
                 usersAPI.getUserSettings(userSearched.id)
                     .then(settings => {
-                        $scope.brands_limit = settings.data.brands_limit
-                        $scope.collected_limit = settings.data.collected_limit
-                        $scope.analytics_limit = settings.data.analytics_limit;
-                        $scope.crm_limit = settings.data.crm_limit;
+                        if (settings.data.brands_limited) {
+                            document.getElementById("brand_limit").value = settings.data.brands_limit;
+                        }
+                        if (settings.data.collected_limited) {
+                            document.getElementById("collected_posts_limit").value = settings.data.collected_limit
+                        }
+                        if (settings.data.analytics_limited) {
+                            document.getElementById("analytics_profile_limit").value = settings.data.analytics_limit;
+                        }
+                        if (settings.data.crm_limited) {
+                            document.getElementById("crm_profile_limit").value = settings.data.crm_limit;
+                        }
 
+                        idSettings = settings.data.id;
                         setCheckbox(settings.data);
                     });
             }
@@ -40,7 +52,7 @@ angular.module("adminScreen")
             $scope.getStats = function () {
                 usersAPI.getUserInformations(userSearched.id)
                     .then(userInfos => {
-                        document.getElementById("totalQuota").value = userInfos.data.total_quota;
+                        document.getElementById("totalQuota").value = totalQuota;
                         $total = userInfos.data.total_quota;
                         getProjectsInformations();
                     })
@@ -61,10 +73,10 @@ angular.module("adminScreen")
                     })
             }
 
-            getUserInformations = function () {
+            getUserInformations = function (viewUser) {
                 usersAPI.getUserInformations(userSearched.id)
                     .then(userInfos => {
-                        setViewUserInformations(true);
+                        setViewUserInformations(viewUser);
                         $scope.userEmail = userInfos.data.email;
                         $scope.userPassword = userInfos.data.password;
                         $scope.activationState = userInfos.data.activation_state;
@@ -119,6 +131,14 @@ angular.module("adminScreen")
             }
 
             $scope.save = function () {
+                if ($scope.viewUserInformations || $scope.viewStats) {
+                    updateUser();
+                } else if ($scope.viewSettings) {
+                    updateSetting();
+                }
+            }
+
+            updateUser = function () {
                 id = userSearched.id;
                 email = userSearched.email;
                 if (document.getElementById("password") !== null) {
@@ -126,14 +146,49 @@ angular.module("adminScreen")
                 } else {
                     password = userSearched.password;
                 }
-                if (document.getElementById("totalQuota") !== null) {
-                    total_quota = document.getElementById("totalQuota").value;
+                if ($scope.viewStats) {
+                    total_quota = parseInt(document.getElementById("totalQuota").value);
                 } else {
                     total_quota = userSearched.total_quota;
                 }
+                console.log(total_quota);
                 activation_state = userSearched.activation_state;
                 account_type = userSearched.account_type;
-                usersAPI.save(id, email, password, total_quota, activation_state, account_type);
+                usersAPI.updateUser(id, email, password, total_quota, activation_state, account_type);
+
+
+            }
+
+            updateSetting = function () {
+                if (document.getElementById("brand_limit").value != "") {
+                    brands_limit = parseInt(document.getElementById("brand_limit").value);
+                } else {
+                    brands_limit = 0;
+                }
+                if (document.getElementById("collected_posts_limit").value != "") {
+                    collected_limit = parseInt(document.getElementById("collected_posts_limit").value);
+                } else {
+                    collected_limit = 0;
+                } if (document.getElementById("analytics_profile_limit").value != "") {
+                    analytics_profile_limit = parseInt(document.getElementById("analytics_profile_limit").value);
+                } else {
+                    analytics_profile_limit = 0;
+                }
+                if (document.getElementById("crm_profile_limit").value != "") {
+                    crm_profile_limit = parseInt(document.getElementById("crm_profile_limit").value);
+                } else {
+                    crm_profile_limit = 0;
+                }
+                brands_limited = document.getElementById("check1").checked;
+                collected_limited = document.getElementById("check2").checked;
+                analytics_profile_limited = document.getElementById("check3").checked;
+                crm_profile_limited = document.getElementById("check4").checked;
+                analytics_pro = document.getElementById("check5").checked;
+                dashboards = document.getElementById("check6").checked;
+                historial_search = document.getElementById("check7").checked;
+                userId = userSearched.id;
+
+                usersAPI.updateSetting(idSettings, brands_limit, collected_limit, analytics_profile_limit, crm_profile_limit, brands_limited, collected_limited, analytics_profile_limited, crm_profile_limited, analytics_pro, dashboards, historial_search, userId);
             }
 
             $scope.quotaInformation = function () {
@@ -144,12 +199,10 @@ angular.module("adminScreen")
                             quotaUsed += projects.data[i].quota_used;
                         }
 
-                        $scope.currentQuota = userSearched.total_quota - quotaUsed;
+                        $scope.currentQuota = totalQuota - quotaUsed;
                         $scope.quotaUsed = quotaUsed;
                     });
             }
-
-            // perc = 
 
             $scope.perc = function (used) {
                 return ((used / userSearched.total_quota) * 100).toFixed(2);
