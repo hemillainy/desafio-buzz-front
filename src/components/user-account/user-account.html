@@ -13,10 +13,11 @@
 <div class="ui container">
     <div>
         <div ng-if="viewTabs">
-            <div class="ui three item menu huge">
-                <a class="item" href="#users" ng-click="setViews(true, false, false);">USER</a>
-                <a class="item" id="tabSettings" href="#settings" ng-click="getUserSettings(); setViews(false, true, false);">SETTINGS</a>
-                <a class="item" ng-click="getStats(); setViews(false, false, true); quotaInformation()">STATS</a>
+            <div class="ui four item menu huge">
+                <a class="item" href="#users" ng-click="setViews(true, false, false, false)">USER</a>
+                <a class="item" id="tabSettings" href="#settings" ng-click="getUserSettings(); setViews(false, true, false, false);">SETTINGS</a>
+                <a class="item" ng-click="getStats(); setViews(false, false, true, false); quotaInformation()">STATS</a>
+                <a class="item" ng-click="setViews(false, false, false, true)">OTHER</a>
             </div>
 
             <div class="ui segment" style="margin-top: 0px;padding-top: 0px;bottom: 15px;width: 100%;height: 425px;padding-bottom: 40%;">
@@ -196,6 +197,30 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <br>
+                <div ng-if="viewOther">
+                    <table style="border:none; width: 95%" class="ui basic table">
+                        <tbody>
+                            <tr style="border-top: none">
+                                <td style="border-top: none; text-align: right">Sponsored Facebook posts</td>
+                                <td style="border-top: none"><input id="check1" type="checkbox"></td>
+                            </tr>
+                            <tr style="border-top: none">
+                                <td class="atributte" style="border-top: none; text-align: right">Social News Sources</td>
+                                <td style="border-top: none">
+                                    <div class="ui input">
+                                        <input style="width: 330px;" type="text">
+                                    </div>
+                                    <div>
+                                        No Social News sources selected, which means this account doesn't monitor
+                                        social
+                                        news.
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <button class="ui primary button btnSave" ng-click="save(); attView()">

@@ -10,7 +10,7 @@ angular.module("adminScreen")
             $scope.viewUserInformations = false;
             $scope.viewStats = false;
             $scope.viewTabs = false;
-            $scope.passwordSco = "";
+            $scope.viewOther = false;
 
             $scope.searchUser = function (viewUser) {
                 email = document.getElementById("email").value;
@@ -109,10 +109,11 @@ angular.module("adminScreen")
                 }
             }
 
-            $scope.setViews = function (tab1, tab2, tab3) {
+            $scope.setViews = function (tab1, tab2, tab3, tab4) {
                 $scope.viewUserInformations = tab1;
                 $scope.viewSettings = tab2;
                 $scope.viewStats = tab3;
+                $scope.viewOther = tab4;
             }
 
             setViewUserInformations = function (operation) {
@@ -205,5 +206,6 @@ angular.module("adminScreen")
             $scope.perc = function (used) {
                 return ((used / userSearched.total_quota) * 100).toFixed(2);
             }
+
         }
     })
