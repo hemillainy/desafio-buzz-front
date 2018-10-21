@@ -1,6 +1,6 @@
 angular.module("adminScreen")
-    .component("searchUser", {
-        templateUrl: './src/components/search-user/search-user.html',
+    .component("userAccount", {
+        templateUrl: './src/components/user-account/user-account.html',
         controller: function ($scope, usersAPI) {
 
             let userSearched;
@@ -69,7 +69,6 @@ angular.module("adminScreen")
                         $scope.projects = projects.sort((a, b) => {
                             return b.quota_used - a.quota_used;
                         });
-                        console.log($scope.projects)
                     })
             }
 

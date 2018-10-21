@@ -25,7 +25,6 @@ angular.module("adminScreen")
                 "activation_state": activation_state,
                 "account_type": account_type
             }
-            console.log(updatedUser)
             return $http.put("https://api-desafio.herokuapp.com/users/" + id, updatedUser);
         }
 
@@ -45,7 +44,6 @@ angular.module("adminScreen")
                 "historial_search": historial_search,
                 "user_id": userId
             }
-            console.log(updatedSetting)
             return $http.put("https://api-desafio.herokuapp.com/settings/" + id, updatedSetting);
         }
 

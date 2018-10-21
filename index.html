@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Buzzmonitor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./src/components/search-user/search-user.css">
+    <link rel="stylesheet" href="./src/components/user-account/user-account.css">
     <link rel="stylesheet" href="./node_modules/semantic-ui/dist/semantic.css">
     <link rel="stylesheet" href="./src/components/user-listing/user-listing.css">
     <link rel="stylesheet" href="./app.css">
@@ -25,7 +25,7 @@
 
     <br>
 
-    <search-user ng-if="viewSearch"></search-user>
+    <user-account ng-if="viewSearch"></user-account>
     <br>
     <br><br>
     <user-listing ng-if="viewUserListing"></user-listing>
@@ -34,12 +34,10 @@
     <script src="./node_modules/jquery/dist/jquery.js"></script>
     <script src="./src/app.js"></script>
     <script src="./src/admin-screen-ctrl.js"></script>
-    <script src="./src/components/search-user/search-user.js"></script>
+    <script src="./src/components/user-account/user-account.js"></script>
     <script src="./src/users-service.js"></script>
     <script src="./src/components/user-listing/user-listing.js"></script>
-    <script src="./src/components/user-settings/settings.js"></script>
     <script src="./node_modules/semantic-ui/dist/semantic.js"></script>
-    <script src="./src/components/user/user-view.js"></script>
 </body>
 
 </html>
